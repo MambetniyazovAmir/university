@@ -18,4 +18,10 @@ interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addDepartment(model: DepartmentModel)
+
+    @Query("SELECT * FROM teachers")
+    fun getAllTeachers(): List<TeacherModel>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addTeacher(model: TeacherModel)
 }

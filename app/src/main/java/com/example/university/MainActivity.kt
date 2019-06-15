@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.university.list.department.DepartmentActivity
 import com.example.university.list.faculty.FacultiesActivity
+import com.example.university.list.teacher.TeacherActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         }
         departments.setOnClickListener {
             startActivity(Intent(this, DepartmentActivity::class.java))
+        }
+        teachers.setOnClickListener {
+            startActivity(Intent(this, TeacherActivity::class.java))
         }
     }
 
