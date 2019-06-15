@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [FacultyModel::class], version = 1 , exportSchema = false)
+@Database(entities = [FacultyModel::class, DepartmentModel::class], version = 2 , exportSchema = false)
 abstract class AppDatabase: RoomDatabase(){
 
     abstract fun financeDao(): AppDao
@@ -14,7 +14,7 @@ abstract class AppDatabase: RoomDatabase(){
         private var INSTANCE: AppDatabase? = null
         fun getInstance(context: Context):AppDatabase{
             if(INSTANCE == null){
-                INSTANCE = Room.databaseBuilder(context.applicationContext,AppDatabase::class.java, "finance.db")
+                INSTANCE = Room.databaseBuilder(context,AppDatabase::class.java, "finance.db")
                     .allowMainThreadQueries()
                     .build()
             }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.university.R
 import com.example.university.data.FacultyModel
+import com.example.university.list.department.DepartmentViewHolder
 
 class FacultiesListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<FacultyViewHolder>() {
     private var models: List<FacultyModel> = listOf()
