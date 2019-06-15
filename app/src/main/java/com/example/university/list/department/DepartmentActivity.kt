@@ -2,6 +2,9 @@ package com.example.university.list.department
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.university.OnAddButtonClickListener
 import com.example.university.R
 import com.example.university.data.AppDao
@@ -19,6 +22,9 @@ class DepartmentActivity : AppCompatActivity(), OnAddButtonClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_department)
         dao = AppDatabase.getInstance(this).financeDao()
+        listView.adapter =adapter
+        listView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        listView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         adapter.setData(dao.getAllDepartments())
         button.setOnClickListener {
             val dialog = AddDialog(this, this)
@@ -29,6 +35,7 @@ class DepartmentActivity : AppCompatActivity(), OnAddButtonClickListener {
     override fun onAddButtonClick(name: String) {
         val model = DepartmentModel(name)
         dao.addDepartment(model)
-        adapter.setData(dao.getAllDepartments())
+        val models = dao.getAllDepartments()
+        adapter.setData(models)
     }
 }

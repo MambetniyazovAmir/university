@@ -11,6 +11,7 @@ class DepartmentListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<
 
     fun setData(models: List<DepartmentModel>) {
         this.models = models
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DepartmentViewHolder {

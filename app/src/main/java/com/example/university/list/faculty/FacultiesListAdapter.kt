@@ -11,6 +11,7 @@ class FacultiesListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<F
 
     fun setData(models: List<FacultyModel>) {
         this.models = models
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FacultyViewHolder {
